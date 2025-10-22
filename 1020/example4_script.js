@@ -29,10 +29,27 @@ switch (choice) {
     msg += '\n非 1/2/3';
 }
 
-document.getElementById('result').textContent = msg;
-
-const level = prompt("Enter 1~100 score:");
-switch(level){
-    case level>=90:
-        
+// 延伸練習
+const score = parseInt(prompt("Enter the score (0~100):"));
+// console.log(score);
+switch(true){
+    case  score>=90:
+      msg += '\nA';
+      break;
+    case score >=80:
+      msg += '\nB';
+      break;
+    case score >=70:
+      msg += '\nC';
+      break;  
+    case score >=60:
+      msg += '\nD';
+      break;
+    case score <60:
+      msg += '\nF';
+      break;
+    default:
+      msg += '\nInvalid score';
 }
+
+document.getElementById('result').textContent = msg;

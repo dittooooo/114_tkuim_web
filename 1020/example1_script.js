@@ -11,3 +11,10 @@ console.log('Hello JavaScript from console');
 var el = document.getElementById('result');
 el.textContent = '這行文字是由外部 JS 檔案寫入的。';
 console.log("412630450 江秉真");
+
+
+// 延伸練習
+const alert_btn= document.getElementById('alert_btn');
+alert_btn.addEventListener('click', ()=>{
+    alert('The button is clicked!');
+})

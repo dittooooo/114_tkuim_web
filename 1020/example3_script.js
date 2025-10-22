@@ -22,6 +22,8 @@ output += 'A / B = ' + (numA / numB) + '\n';
 output += 'A > B ? ' + (numA > numB) + '\n';
 output += 'A == B ? ' + (numA == numB) + '（僅比較值）\n';
 output += 'A === B ? ' + (numA === numB) + '（比較值與型態）\n';
+
+// 延伸練習
 output += 'A % B = ' + (numA % numB) + ' (給出兩數相除後的餘數) \n';
 
 alert('計算完成，請看頁面結果與 Console');

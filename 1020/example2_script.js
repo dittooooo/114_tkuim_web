@@ -26,3 +26,9 @@ const num1 = prompt("Enter the first number:");
 const num2 = prompt("Enter the second number:");
 const sum = parseInt(num1, 10) + parseInt(num2, 10);
 alert("The sum is: " + sum);
+
+// 延伸練習
+const num_1 = prompt("Enter the first number:");
+const num_2 = prompt("Enter the second number:");
+const sum_result = parseInt(num_1, 10) + parseInt(num_2, 10);
+alert("The sum is: " + sum_result);

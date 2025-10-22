@@ -26,6 +26,11 @@ function bmiLevel(bmi) {
   return level;
 }
 
+  // 延伸練習
+function isIdeal(bmi){
+  return bmi >= 18.5 && bmi <= 24;
+}
+
 var hStr = prompt('請輸入身高（公分）：');
 var wStr = prompt('請輸入體重（公斤）：');
 var hNum = parseFloat(hStr);
@@ -39,7 +44,8 @@ if (isNaN(hNum) || isNaN(wNum) || hNum <= 0) {
   text = '身高：' + hNum + ' cm\n'
        + '體重：' + wNum + ' kg\n'
        + 'BMI：' + bmi.toFixed(2) + '\n'
-       + '等級：' + bmiLevel(bmi);
+       + '等級：' + bmiLevel(bmi) + '\n'
+       + '理想體重 : ' + (isIdeal(bmi) ? '是' : '否')
 }
 
 document.getElementById('result').textContent = text;

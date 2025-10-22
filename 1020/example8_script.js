@@ -14,8 +14,20 @@ var student = {
   },
   info: function() {
     return '姓名：' + this.name + '\n學號：' + this.id;
+  },
+  // 延伸練習
+  getGrade: () =>{
+    const avg = student.getAverage();
+    switch(Math.floor(avg/10)){
+      case 10 : 
+      case 9 : return 'A';
+      case 8 : return 'B';
+      case 7 : return 'C';
+      case 6 : return 'D';
+      default : return 'F';
+    }
   }
 };
 
-var text = student.info() + '\n平均：' + student.getAverage().toFixed(2);
+var text = student.info() + '\n平均：' + student.getAverage().toFixed(2) + '\n等級：' + student.getGrade() ;
 document.getElementById('result').textContent = text;

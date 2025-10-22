@@ -9,10 +9,20 @@ if (!raw) {
 } else {
   var parts = raw.split(',');
   var nums = [];
+  let max = parseInt(parts[0]);
+  let min = parseInt(parts[0]);
   for (var i = 0; i < parts.length; i++) {
     var n = parseFloat(parts[i]);
     if (!isNaN(n)) {
       nums.push(n);
+        // 延伸練習
+      if(n>max){
+        max = n;
+      }
+      if(n<min){
+        min = n;
+      }
+
     }
   }
 
@@ -26,8 +36,10 @@ if (!raw) {
     var avg = sum / nums.length;
     result = '有效數字：' + nums.join(', ') + '\n'
            + '總和：' + sum + '\n'
-           + '平均：' + avg;
-  }
+           + '平均：' + avg + '\n'
+           + '最大值：' + max + '\n'
+           + '最小值：' + min;
+          }
 }
 
 document.getElementById('result').textContent = result;
