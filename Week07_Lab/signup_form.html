@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container w-50 p-5 bg-light rounded m-auto">
+      <h1 class="mb-4 text-center">會員註冊</h1>
+      <div id="form_status">
+        <form action="#" class="needs-validation p-3 m-0" novalidate>
+          <!-- <div class="row g-4 mb-4"> -->
+          <div class="row mb-3">
+            <div class="col-sm-7">
+              <label for="name" class="form-label">姓名</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                class="form-control form-control-sm"
+                aria-describedby="name_error"
+                required
+              />
+              <p id="name_error" class="invalid-feedback">請輸入您的姓名</p>
+            </div>
+            <div class="col-sm">
+              <label for="phone" class="form-label">手機</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                class="form-control form-control-sm"
+                aria-describedby="phone_error"
+                required
+              />
+              <p id="phone_error" class="invalid-feedback">
+                請輸入您的手機號碼
+              </p>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="email_address" class="form-label">Email</label>
+            <input
+              type="email"
+              id="email_address"
+              name="email"
+              class="form-control form-control-sm"
+              aria-describedby="email_error"
+              required
+            />
+            <p id="email_error" class="invalid-feedback">
+              請輸入您的電子郵件地址
+            </p>
+          </div>
+          <div class="row mb-3">
+            <div class="col-sm">
+              <label for="password" class="form-label">密碼</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                minlength="8"
+                class="form-control form-control-sm"
+                aria-describedby="password_error"
+                required
+              />
+              <p id="password_error" class="invalid-feedback">請輸入您的密碼</p>
+            </div>
+            <div class="col-sm">
+              <label for="confirm_password" class="form-label">確認密碼</label>
+              <input
+                type="password"
+                id="confirm_password"
+                class="form-control form-control-sm"
+                aria-describedby="confirmPassword_error"
+                required
+              />
+              <p id="confirm_password_error" class="invalid-feedback">
+                請確認您的密碼
+              </p>
+            </div>
+          </div>
+          <div class="mb-4">
+            <label class="form-label">興趣</label>
+            <div id="interests">
+              <div class="form-check form-check-inline">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="interest1"
+                  name="interests"
+                  value="music"
+                />
+                <label class="form-check-label" for="interest1">音樂</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="interest2"
+                  name="interests"
+                  value="reading"
+                />
+                <label class="form-check-label" for="interest2">閱讀</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="interest3"
+                  name="interests"
+                  value="sports"
+                />
+                <label class="form-check-label" for="interest3">運動</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="interest4"
+                  name="interests"
+                  value="drawing"
+                />
+                <label class="form-check-label" for="interest4">繪畫</label>
+              </div>
+            </div>
+            <p class="invalid-feedback" id="interests_error">
+              請至少選擇一個興趣
+            </p>
+          </div>
+          <div class="mb-4">
+            <input
+              type="checkbox"
+              id="service_terms"
+              name="service_terms"
+              class="form-check-input"
+              aria-describedby="terms_error"
+              required
+            />
+            <label for="service_terms" class="form-check-label"
+              >我已閱讀完並同意服務條款</label
+            >
+            <p id="terms_error" class="invalid-feedback">
+              請勾選以確認您已閱讀並同意服務條款
+            </p>
+          </div>
+          <button type="submit" id="submitBtn" class="btn btn-primary w-100">
+            註冊
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script src="signup_form.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
