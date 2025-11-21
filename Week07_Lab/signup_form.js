@@ -93,17 +93,20 @@ function validateConfirm(showMsg = false) {
 function validateInterests(showMsg = false) {
   const boxes = interestsBox.querySelectorAll('input[name="interests"]');
   const anyChecked = Array.from(boxes).some((cb) => cb.checked);
-  boxes.forEach((cb) =>
-    cb.setCustomValidity(anyChecked ? "" : "請至少選擇一個興趣")
-  );
   const msg = anyChecked ? "" : "請至少選擇一個興趣";
-  if (showMsg) {
+
+  // 設定所有 checkbox 的驗證狀態
+  boxes.forEach((cb) => {
+    cb.setCustomValidity(msg);
+    cb.classList.remove("is-valid", "is-invalid");
+    cb.classList.add(anyChecked ? "is-valid" : "is-invalid");
+  });
+
+  // 更新錯誤提示
+  if (showMsg || touched.has("interests")) {
     setError(boxes[0], msg, "interests_error");
   }
-  boxes.forEach((cb) => {
-    cb.classList.toggle("is-invalid", !anyChecked);
-    cb.classList.toggle("is-valid", anyChecked);
-  });
+
   return anyChecked;
 }
 
@@ -145,10 +148,13 @@ attachFieldValidation("terms", validateTerms);
 
 interestsBox.addEventListener("change", (e) => {
   if (e.target.matches('input[name="interests"]')) {
-    const ok = validateInterests(touched.has("interests"));
     touched.add("interests");
+    validateInterests(true); // 強制顯示/隱藏錯誤訊息
+
     const wrapper = e.target.closest(".form-check");
-    if (wrapper) wrapper.classList.toggle("is-checked", e.target.checked);
+    if (wrapper) {
+      wrapper.classList.toggle("is-checked", e.target.checked);
+    }
   }
 });
 

@@ -1,0 +1,102 @@
+{
+	"info": {
+		"_postman_id": "c91a3a11-3c81-4554-b913-3cb0e56237a4",
+		"name": "Week09 Signup",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "50114445",
+		"_collection_link": "https://dittooooo-5cbdaa0c-778045.postman.co/workspace/%25E6%25B1%259F%25E7%25A7%2589%25E7%259C%259F's-Workspace~b5a59ec7-b576-4313-88f4-b56434343937/collection/50114445-c91a3a11-3c81-4554-b913-3cb0e56237a4?action=share&source=collection_link&creator=50114445"
+	},
+	"item": [
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Signup",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('狀態碼 201', () => pm.response.code === 201);\r",
+							"pm.expect(pm.response.json()).to.have.property('participant');\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"測試同學\",\r\n  \"email\": \"test@example.com\",\r\n  \"phone\": \"0912345678\",\r\n  \"password\": \"abc12345\",\r\n  \"confirmPassword\": \"abc12345\",\r\n  \"interests\": [\"前端\", \"後端\"],\r\n  \"terms\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/signup",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": ""
+		}
+	]
+}
