@@ -6,6 +6,9 @@ db.createUser({
 });
 
 db.createCollection("participants");
+
+db.participants.createIndex({ email: 1 }, { unique: true });
+
 db.participants.insertOne({
   name: "示範學員",
   email: "demo@example.com",
