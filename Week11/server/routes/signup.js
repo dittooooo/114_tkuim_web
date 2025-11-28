@@ -3,6 +3,7 @@ import express from "express";
 import {
   createParticipant,
   listParticipants,
+  listParticipantsPaged,
   updateParticipant,
   deleteParticipant,
 } from "../repositories/participants.js";
@@ -28,8 +29,10 @@ router.post("/", async (req, res, next) => {
 
 router.get("/", async (req, res, next) => {
   try {
-    const participants = await listParticipants();
-    res.json({ items: participants, total: participants.length });
+    const { page, limit } = req.query;
+    const result = await listParticipantsPaged(page, limit);
+    // result = { items, total, page, limit }
+    res.json(result);
   } catch (error) {
     next(error);
   }

@@ -17,6 +17,24 @@ export function listParticipants() {
   return collection().find().sort({ createdAt: -1 }).toArray();
 }
 
+export async function listParticipantsPaged(page = 1, limit = 10) {
+  const safePage = Math.max(parseInt(page) || 1, 1);
+  const safeLimit = Math.max(parseInt(limit) || 10, 1);
+  const skip = (safePage - 1) * safeLimit;
+
+  const [items, total] = await Promise.all([
+    collection()
+      .find()
+      .sort({ createdAt: -1 })
+      .skip(skip)
+      .limit(safeLimit)
+      .toArray(),
+    collection().countDocuments(),
+  ]);
+
+  return { items, total, page: safePage, limit: safeLimit };
+}
+
 export async function updateParticipant(id, patch) {
   return collection().updateOne(
     { _id: new ObjectId(id) },
