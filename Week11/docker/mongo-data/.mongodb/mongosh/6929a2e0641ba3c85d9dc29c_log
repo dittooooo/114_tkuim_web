@@ -33,3 +33,4 @@
 {"t":{"$date":"2025-11-28T13:26:42.247Z"},"s":"I","c":"DEVTOOLS-CONNECT","id":1000000037,"ctx":"mongosh-connect","msg":"Connection attempt finished"}
 {"t":{"$date":"2025-11-28T13:26:53.095Z"},"s":"I","c":"MONGOSH","id":1000000007,"ctx":"repl","msg":"Evaluating input","attr":{"input":"db.participants.getIndexes()"}}
 {"t":{"$date":"2025-11-28T13:26:53.102Z"},"s":"I","c":"MONGOSH","id":1000000011,"ctx":"shell-api","msg":"Performed API call","attr":{"method":"getIndexes","class":"Collection","db":"week11","coll":"participants","arguments":{}}}
+{"t":{"$date":"2025-11-28T14:16:26.866Z"},"s":"I","c":"MONGOSH","id":1000000045,"ctx":"analytics","msg":"Flushed outstanding data","attr":{"flushError":"Trying to persist throttle state before userId is set","flushDuration":0}}
