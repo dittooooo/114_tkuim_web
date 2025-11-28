@@ -1,0 +1,32 @@
+@id = 66929a988361809560b270282
+
+POST http://localhost:3001/api/signup
+Content-Type: application/json
+
+{
+  "name": "student1",
+  "email": "demo1@example.com",
+  "phone": "0911111111"
+}
+
+POST http://localhost:3001/api/signup
+Content-Type: application/json
+
+{
+  "name": "student2",
+  "email": "demo1@example.com",
+  "phone": "0922222222"
+}
+
+
+GET http://localhost:3001/api/signup?page=1&limit=2
+
+
+PATCH http://localhost:3001/api/signup/{{id}}
+Content-Type: application/json
+
+{
+  "phone": "0933333333"
+}
+
+DELETE http://localhost:3001/api/signup/{{id}}
