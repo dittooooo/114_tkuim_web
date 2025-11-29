@@ -1,3 +1,5 @@
+show collections
+show collection
 db.participants.getIndexes()
 use week11
 use week1
