@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>M.cares — Landing</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/variables.css" />
+    <link rel="stylesheet" href="styles/styles.css" />
+  </head>
+  <body>
+    <!-- Hero banner with rounded pill background -->
+    <header class="hero-banner">
+      <div class="hero-top">
+        <div class="logo">M.cares</div>
+        <button class="hamburger" aria-label="menu">☰</button>
+      </div>
+      <div class="hero container">
+        <div class="hero-left">
+          <h1 class="hero-title">暮らしの<br />すき間をすくう。</h1>
+          <p class="hero-desc">
+            エムケアーズでは訪問看護や相談支援、<br />
+            グループホームの運営を通じて、<br />
+            誰もが安心して暮らせる地域の環境づくりを目指しています。
+          </p>
+        </div>
+        <div class="hero-right">
+          <div class="card-image">
+            <img src="image/螢幕擷取畫面 2025-12-15 103455.png" alt="hand" />
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Service section -->
+    <section class="service container">
+      <nav class="service-nav">
+        <div class="logo-dark">M.cares</div>
+        <div class="nav-pill">
+          <a href="#">エムケアーズについて</a>
+          <a class="active" href="#">事業内容 <span class="plus">＋</span></a>
+          <a href="#">会社案内</a>
+          <a href="#">採用情報</a>
+          <a href="#">ブログ</a>
+          <a href="#">お問い合わせ</a>
+        </div>
+        <button class="hamburger dark" aria-label="menu">☰</button>
+      </nav>
+
+      <div class="service-grid">
+        <div class="service-left">
+          <div class="service-card" id="service-card">
+            <div class="service-card-media">
+              <img
+                src="image/螢幕擷取畫面 2025-12-15 103504.png"
+                alt="service 1"
+              />
+            </div>
+            <h3 class="card-title">精神科訪問看護事業</h3>
+            <p class="card-text">
+              訪問看護ステーションを通じて、地域で暮らす方々の支援を行います。
+            </p>
+            <button class="circle-btn" id="next-btn" aria-label="next">
+              →
+            </button>
+          </div>
+        </div>
+
+        <div class="service-right">
+          <div class="small-label">事業内容</div>
+          <h2 class="service-title">Service</h2>
+          <p class="service-text">
+            当社は地域に根ざしたケアを提供し、安心して暮らせる社会を目指します。
+          </p>
+          <p class="service-text">
+            訪問看護、相談支援、グループホーム運営など、複数の事業を展開しています。
+          </p>
+          <button class="view-more">
+            View more <span class="arrow">→</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <script src="scripts/main.js"></script>
+  </body>
+</html>
