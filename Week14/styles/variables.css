@@ -11,7 +11,23 @@
   --r-pill: 999px;
   --shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
 
+  /* additional design tokens */
+  --hero-pill: #e8f0e7;
+  --card-bg: #eaefe8;
+
   --container: 1200px;
+}
+
+/* Wider containers for large screens */
+@media (min-width: 1366px) {
+  :root {
+    --container: 1400px;
+  }
+}
+@media (min-width: 1600px) {
+  :root {
+    --container: 1600px;
+  }
 }
 
 * {

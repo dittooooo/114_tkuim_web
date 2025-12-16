@@ -13,12 +13,14 @@
     <link rel="stylesheet" href="styles/styles.css" />
   </head>
   <body>
+    <a class="skip-link" href="#main">Skip to content</a>
     <!-- Hero banner with rounded pill background -->
     <header class="hero-banner">
       <div class="hero-top">
         <div class="logo">M.cares</div>
         <button class="hamburger" aria-label="menu">☰</button>
       </div>
+      <main id="main">
       <div class="hero container">
         <div class="hero-left">
           <h1 class="hero-title">暮らしの<br />すき間をすくう。</h1>
@@ -30,40 +32,42 @@
         </div>
         <div class="hero-right">
           <div class="card-image">
-            <img src="image/螢幕擷取畫面 2025-12-15 103455.png" alt="hand" />
+            <img src="image/螢幕擷取畫面 2025-12-15 103455.png" alt="訪問ケアの握手を象徴する写真" width="960" height="640" loading="eager" />
           </div>
         </div>
       </div>
     </header>
 
     <!-- Service section -->
-    <section class="service container">
+    <section class="service container" id="service" aria-labelledby="service-heading">
       <nav class="service-nav">
         <div class="logo-dark">M.cares</div>
-        <div class="nav-pill">
+        <div class="nav-pill" id="nav-pill" role="navigation" aria-hidden="false">
           <a href="#">エムケアーズについて</a>
-          <a class="active" href="#">事業内容 <span class="plus">＋</span></a>
+          <a class="active" href="#" aria-current="page">事業内容 <span class="plus">＋</span></a>
           <a href="#">会社案内</a>
-          <a href="#">採用情報</a>
+          <a href="careers.html">採用情報</a>
           <a href="#">ブログ</a>
           <a href="#">お問い合わせ</a>
         </div>
-        <button class="hamburger dark" aria-label="menu">☰</button>
+        <button class="hamburger dark" aria-label="menu" aria-expanded="false" data-target="nav-pill" aria-controls="nav-pill">☰</button>
       </nav>
 
       <div class="service-grid">
         <div class="service-left">
           <div class="service-card" id="service-card">
             <div class="service-card-media">
-              <img
-                src="image/螢幕擷取畫面 2025-12-15 103504.png"
-                alt="service 1"
-              />
+              <img src="image/螢幕擷取畫面 2025-12-15 103504.png" alt="スタッフが訪問するイメージ写真" width="800" height="520" loading="lazy" />
             </div>
+            <div class="carousel-status sr-only" aria-live="polite" aria-atomic="true"></div>
             <h3 class="card-title">精神科訪問看護事業</h3>
             <p class="card-text">
-              訪問看護ステーションを通じて、地域で暮らす方々の支援を行います。
+                訪問看護ステーションを通じて、地域で暮らす方々の支援を行います。
             </p>
+            <div class="carousel-controls">
+              <button class="circle-btn prev-btn" id="prev-btn" aria-label="previous slide">←</button>
+              <div class="indicators" id="carousel-indicators" role="tablist" aria-label="Slides"></div>
+            </div>
             <button class="circle-btn" id="next-btn" aria-label="next">
               →
             </button>
@@ -72,7 +76,7 @@
 
         <div class="service-right">
           <div class="small-label">事業内容</div>
-          <h2 class="service-title">Service</h2>
+          <h2 id="service-heading" class="service-title">Service</h2>
           <p class="service-text">
             当社は地域に根ざしたケアを提供し、安心して暮らせる社会を目指します。
           </p>
@@ -86,6 +90,6 @@
       </div>
     </section>
 
-    <script src="scripts/main.js"></script>
+    <script type="module" src="scripts/main.js"></script>
   </body>
 </html>

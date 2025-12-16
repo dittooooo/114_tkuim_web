@@ -11,7 +11,7 @@
   right: 24px;
   top: 20px;
   height: 200px;
-  background: #e8f0e7;
+  background: var(--hero-pill);
   border-radius: 36px;
   z-index: 0;
 }
@@ -65,7 +65,17 @@
   flex: 1;
 }
 .hero-right {
-  width: 480px;
+  max-width: 480px;
+  width: 100%;
+}
+
+.card-image img {
+  display: block;
+  width: 100%;
+  height: min(360px, 45vh);
+  object-fit: cover;
+  border-radius: 22px;
+  transition: opacity 0.18s ease;
 }
 
 .hero-title {
@@ -82,10 +92,26 @@
 }
 
 .card-image {
-  background: #eaefe8;
+  background: var(--card-bg);
   padding: 20px;
   border-radius: var(--r-2xl);
   box-shadow: var(--shadow);
+}
+
+/* skip link */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 8px;
+  background: var(--text);
+  color: var(--white);
+  padding: 8px 12px;
+  border-radius: 6px;
+  z-index: 999;
+  text-decoration: none;
+}
+.skip-link:focus {
+  left: 24px;
 }
 .card-image img {
   display: block;
@@ -138,6 +164,10 @@ button:focus-visible {
   outline: 3px solid rgba(40, 40, 40, 0.12);
   outline-offset: 2px;
 }
+.nav-pill a:focus-visible {
+  outline: 2px solid rgba(40, 40, 40, 0.12);
+  border-radius: 6px;
+}
 
 .service-grid {
   display: grid;
@@ -150,8 +180,32 @@ button:focus-visible {
   border: 1px solid var(--border);
   border-radius: var(--r-xl);
   padding: 28px;
+  padding-bottom: 120px; /* reserve space for controls */
   position: relative;
   background: var(--white);
+}
+
+.carousel-controls {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  pointer-events: none;
+  z-index: 2;
+}
+.carousel-controls .indicators {
+  pointer-events: auto;
+}
+.prev-btn {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  pointer-events: auto;
+  z-index: 3;
 }
 .service-card-media img {
   width: 100%;
@@ -182,9 +236,44 @@ button:focus-visible {
   color: var(--white);
   border: none;
   font-size: 20px;
+  z-index: 3;
 }
 .circle-btn:hover {
   transform: scale(0.98);
+}
+
+/* .carousel-controls is positioned absolutely above; layout rules were consolidated earlier */
+.indicators {
+  display: flex;
+  gap: 8px;
+}
+.indicators button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.12);
+  padding: 0;
+  cursor: pointer;
+}
+.indicators button:focus-visible {
+  outline: 2px solid rgba(0, 0, 0, 0.12);
+}
+.indicators button.active {
+  background: var(--pill);
+}
+.carousel-status {
+  margin-top: 8px;
+}
+
+/* visually-hidden */
+.sr-only {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
 .small-label {
@@ -193,8 +282,69 @@ button:focus-visible {
 }
 .service-title {
   font-weight: 900;
-  font-size: clamp(44px, 5vw, 72px);
+  font-size: clamp(36px, 4.5vw, 72px);
   margin: 8px 0 24px;
+}
+
+/* Numbers section */
+.numbers-section {
+  padding: 40px 0 80px;
+}
+.numbers-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 28px;
+  align-items: stretch;
+}
+
+/* Adjust numbers grid for laptop widths */
+@media (min-width: 1024px) and (max-width: 1365px) {
+  .numbers-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.number-card {
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 28px;
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 170px;
+}
+.number-card .card-pill {
+  background: var(--hero-pill);
+  padding: 6px 12px;
+  border-radius: 999px;
+  margin-bottom: 18px;
+  font-weight: 700;
+}
+.number-card .number {
+  font-weight: 900;
+  font-size: 48px;
+  color: var(--text);
+}
+.number-card .unit {
+  font-size: 18px;
+  margin-left: 6px;
+  font-weight: 700;
+}
+
+@media (max-width: 1199px) {
+  .numbers-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 767px) {
+  .numbers-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .number-card {
+    min-height: 140px;
+    padding: 20px;
+  }
 }
 .service-text {
   color: var(--muted);
@@ -213,14 +363,93 @@ button:focus-visible {
 }
 
 /* Responsive */
-@media (max-width: 1199px) {
+/* Laptop breakpoint (large tablets / small laptops) */
+@media (min-width: 1024px) and (max-width: 1365px) {
   .hero-right {
-    width: 380px;
+    max-width: 420px;
+  }
+  .hero {
+    gap: 36px;
+    padding: 36px 24px;
   }
   .service-grid {
-    grid-template-columns: 1fr 360px;
+    grid-template-columns: 1fr min(380px, 40%);
+    gap: 36px;
+  }
+  .card-image img {
+    height: 320px;
   }
 }
+
+@media (max-width: 1199px) {
+  .hero-right {
+    max-width: 380px;
+  }
+  .service-grid {
+    grid-template-columns: 1fr min(360px, 40%);
+  }
+}
+
+/* Tablet range - 768px up to 1023px */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  .hero-right {
+    max-width: 480px;
+    width: 100%;
+  }
+  .card-image img {
+    height: 280px;
+  }
+  .service-grid {
+    grid-template-columns: 1fr min(320px, 35%);
+    gap: 28px;
+  }
+  .circle-btn {
+    width: 64px;
+    height: 64px;
+  }
+  .indicators button {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+/* Mobile small devices (phones) */
+@media (max-width: 480px) {
+  .hero {
+    padding: 24px 16px;
+  }
+  .hero-title {
+    font-size: clamp(28px, 6vw, 40px);
+  }
+  .hero-desc {
+    font-size: 14px;
+  }
+  .card-image img {
+    height: 200px;
+  }
+  .service-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .service-card {
+    padding: 20px;
+    padding-bottom: 100px;
+  }
+  .circle-btn {
+    width: 64px;
+    height: 64px;
+  }
+  .indicators button {
+    width: 12px;
+    height: 12px;
+  }
+}
+
 @media (max-width: 767px) {
   .hero {
     flex-direction: column;
@@ -237,5 +466,35 @@ button:focus-visible {
   }
   .service-nav .nav-pill {
     display: none;
+  }
+  /* mobile nav: show when open */
+  .service-nav .nav-pill.open {
+    display: flex;
+    position: absolute;
+    left: 24px;
+    right: 24px;
+    top: 64px;
+    background: var(--white);
+    color: var(--text);
+    padding: 12px;
+    border-radius: 12px;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: var(--shadow);
+  }
+  .service-nav .nav-pill.open a {
+    color: var(--text);
+  }
+  .circle-btn {
+    width: 56px;
+    height: 56px;
+  }
+  .prev-btn {
+    left: 12px;
+    bottom: 12px;
+  }
+  .circle-btn {
+    right: 12px;
+    bottom: 12px;
   }
 }
